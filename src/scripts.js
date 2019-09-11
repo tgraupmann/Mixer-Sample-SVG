@@ -8,15 +8,52 @@ window.addEventListener('load', function initMixer() {
     right: offset,
   });
 
-  // Whenever someone clicks on "Hello World", we'll send an event
-  // to the game client on the control ID "hello-world"
-  document.getElementById('hello-world').onclick = function(event) {
-    mixer.socket.call('giveInput', {
-      controlID: 'hello-world',
-      event: 'click',
-      button: event.button,
-    });
-  };
+  function accessInlineSVG() {
+    var svgObject = document.getElementById('svgSampleInline');
+    if (svgObject == undefined) {
+      console.error('accessInlineSVG: Inline SVG: Object cannot be accessed!');
+      return;
+    }
+
+    var svgDoc = svgObject.contentDocument;
+    if (svgDoc == undefined) {
+      console.error('accessInlineSVG: Inline SVG: Content Document cannot be accessed!');
+      return;
+    }
+    var leds = svgDoc.getElementsByClassName('led');
+    if (leds.length == 0) {
+      console.error('accessInlineSVG: Inline SVG: Led cannot be accessed!');
+      return;
+    }
+    console.log('accessInlineSVG: Inline SVG: leds', leds)
+  }
+
+  function setupInlineSVG() {
+    var svgObject = document.getElementById('svgSampleInline');
+    if (svgObject == undefined) {
+      console.error('setupInlineSVG: Inline SVG: Object cannot be accessed!');
+      return;
+    }
+
+    //load event doesn't fire because it's already loaded, probably
+    svgObject.addEventListener("load",function() {
+      console.log('setupInlineSVG: Inline SVG: load event');
+      accessInlineSVG();
+    }, false);
+  }
+
+
+  // TEST INLINE SVG
+  console.log('Showing Inline SVG in 3...2...1');
+  setupInlineSVG();
+  setTimeout(function() {
+    var svgObject = document.getElementById('svgSampleInline');
+    if (svgObject != undefined) {
+      svgObject.style = "";
+      accessInlineSVG();
+    }
+  }, 3000);
+
 
   mixer.isLoaded();
 });

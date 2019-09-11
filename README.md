@@ -2,6 +2,10 @@
 
 This is a sample project to show a custom Mixer control attempting to access the SVG DOM.
 
+## Getting Started
+
+* Open this folder with the `Control Development Kit`
+
 ## New Project References
 
 * [Getting Started with Preact](https://dev.mixer.com/guides/mixplay/customcontrols/gettingstartedwithpreact)
