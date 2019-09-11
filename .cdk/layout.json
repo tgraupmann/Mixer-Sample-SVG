@@ -1,0 +1,20 @@
+[
+  {
+    "activeItemIndex": 0,
+    "content": [
+      {
+        "componentName": "Controls",
+        "isClosable": true,
+        "reorderEnabled": true,
+        "title": "Controls",
+        "type": "component",
+        "width": 0.75
+      }
+    ],
+    "isClosable": true,
+    "reorderEnabled": true,
+    "title": "",
+    "type": "stack",
+    "width": 100
+  }
+]
