@@ -74,7 +74,6 @@ window.addEventListener('load', function initMixer() {
       return;
     }
 
-    //load event doesn't fire because it's already loaded, probably
     svgObject.addEventListener("load",function() {
       console.log('setupReferenceSVG: Reference SVG: load event');
       accessReferenceSVG();
